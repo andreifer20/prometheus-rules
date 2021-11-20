@@ -1,0 +1,10 @@
+groups:
+- name: ip.rules
+  - alert: TooManyFloatingIPs
+    expr: neutron_public_ip_usage{tenant="s4_project",ip_type="floatingip",ip_status="ACTIVE"} > 19
+    for: 1m
+    labels:
+      severity: "critical"
+    annotations:
+      summary: "Test Alert"
+      description: "Too many Floating IP used by s4_project"
