@@ -9,6 +9,8 @@ groups:
     annotations:
       summary: "Endpoint {{ $labels.instance }} down"
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes."
+groups:
+- name: ip.rules
   - alert: TooManyFloatingIPs
     expr: neutron_public_ip_usage{tenant="s4_project",ip_type="floatingip",ip_status="ACTIVE"} > 19
     for: 1m
