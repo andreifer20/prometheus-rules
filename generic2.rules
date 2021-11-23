@@ -2,7 +2,7 @@ groups:
 - name: alert.rules
   rules:
   - alert: InstanceDown
-    expr: up{dns_name="SPC06.maas"}==1
+    expr: up == 0
     for: 1m
     labels:
       severity: "critical"
